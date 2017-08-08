@@ -7,11 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
-  username = '';
-  showDetails = true;
-  logger = [];
-  onDisplayDetails(){
-  	this.showDetails = !this.showDetails;
-  	this.logger.push(new Date());
-  }
 }
