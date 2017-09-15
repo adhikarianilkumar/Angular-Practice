@@ -1,0 +1,61 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sx-12">
+			<h1>
+			  {{title}}
+			</h1>
+			<app-warning-alert></app-warning-alert>
+			<app-success-alert></app-success-alert>
+			<hr>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sx-12">
+			<label> Username</label>
+
+			<input 
+				[(ngModel)]="username" 
+				type="text" 
+				class="form-control">
+
+			<p>{{username}} {{username === ''}}</p>
+
+			<button 
+				class="btn btn-primary" 
+				[disabled]="username === ''"
+				(click)="username = ''"
+				> Reset Server</button>
+				<hr>
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="col-sx-12">
+			<button
+				class="btn btn-primary" 
+				(click)="onDisplayDetails()"
+				> Toggle Details</button>
+
+			<ol>
+				<li *ngFor="let log of logger; let idx = index">
+					<span
+						[ngClass]="{afterFifth: idx >= 4}">
+						{{log}}
+					</span>
+				</li>
+			</ol>
+				<!-- <p>{{increament/2 == 0}}</p> -->
+
+			<p *ngIf="showDetails; else show">Click <b>Toggle Details</b> to Hide details.
+			<br>
+			It is working!!
+			</p>
+			<ng-template #show>
+				<p>Click <b>Toggle Details</b> to show details.
+			</ng-template>
+		</div>
+	</div>
+</div>
+
